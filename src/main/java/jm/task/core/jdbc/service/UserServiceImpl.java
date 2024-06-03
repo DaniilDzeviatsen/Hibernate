@@ -13,17 +13,20 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
+    @Override
     public void createUsersTable() {
 
         userDao.createUsersTable();
         System.out.println("Table has been created");
     }
 
+    @Override
     public void dropUsersTable() {
         userDao.dropUsersTable();
         System.out.println("Table has been deleted");
     }
 
+    @Override
     public void saveUser(String name, String lastName, byte age) {
 
         userDao.saveUser(name, lastName, age);
@@ -31,12 +34,14 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
     public void removeUserById(long id) {
 
         userDao.removeUserById(id);
 
     }
 
+    @Override
     public List<User> getAllUsers() {
 
         List<User> users = userDao.getAllUsers();
@@ -46,6 +51,7 @@ public class UserServiceImpl implements UserService {
         return users;
     }
 
+    @Override
     public void cleanUsersTable() {
 
         userDao.cleanUsersTable();
