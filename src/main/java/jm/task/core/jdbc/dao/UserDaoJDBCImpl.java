@@ -15,6 +15,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     }
 
+    @Override
     public void createUsersTable() {
         String sql = """
                 CREATE TABLE users (
@@ -33,6 +34,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void dropUsersTable() {
 
         String sql = """
@@ -46,6 +48,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void saveUser(String name, String lastName, byte age) {
 
         String sql = """
@@ -64,6 +67,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public void removeUserById(long id) {
 
         String sql = """
@@ -82,6 +86,7 @@ public class UserDaoJDBCImpl implements UserDao {
         }
     }
 
+    @Override
     public List<User> getAllUsers() {
 
         String sql = """
@@ -110,6 +115,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     }
 
+    @Override
     public void cleanUsersTable() {
 
         String sql = """

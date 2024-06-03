@@ -1,46 +1,45 @@
 package jm.task.core.jdbc.service;
 
 import jm.task.core.jdbc.dao.UserDao;
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-   // private final UserDao userDaoJDBC;
+    private final UserDao userDao;
 
-   /* public UserServiceImpl(UserDao userDaoJDBC) {
-        this.userDaoJDBC = userDaoJDBC;
-    }*/
+
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public void createUsersTable() {
-        UserDao userDaoJDBC=new UserDaoJDBCImpl();
-        userDaoJDBC.createUsersTable();
+
+        userDao.createUsersTable();
         System.out.println("Table has been created");
     }
 
     public void dropUsersTable() {
-        UserDao userDaoJDBC=new UserDaoJDBCImpl();
-        userDaoJDBC.dropUsersTable();
+        userDao.dropUsersTable();
         System.out.println("Table has been deleted");
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        UserDao userDaoJDBC=new UserDaoJDBCImpl();
-        userDaoJDBC.saveUser(name, lastName, age);
+
+        userDao.saveUser(name, lastName, age);
         System.out.println("User " + name + " added in database");
 
     }
 
     public void removeUserById(long id) {
-        UserDao userDaoJDBC=new UserDaoJDBCImpl();
-        userDaoJDBC.removeUserById(id);
+
+        userDao.removeUserById(id);
 
     }
 
     public List<User> getAllUsers() {
-        UserDao userDaoJDBC=new UserDaoJDBCImpl();
-        List<User> users = userDaoJDBC.getAllUsers();
+
+        List<User> users = userDao.getAllUsers();
         for (User user : users) {
             System.out.println(user);
         }
@@ -48,8 +47,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public void cleanUsersTable() {
-        UserDao userDaoJDBC=new UserDaoJDBCImpl();
-        userDaoJDBC.cleanUsersTable();
+
+        userDao.cleanUsersTable();
         System.out.println("Table has been cleaned");
     }
 }
