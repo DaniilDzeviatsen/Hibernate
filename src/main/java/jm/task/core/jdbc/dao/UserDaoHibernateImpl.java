@@ -12,7 +12,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     }
 
-
     @Override
     public void createUsersTable() {
         Transaction transaction = null;
@@ -33,7 +32,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 transaction.rollback();
             }
         }
-
     }
 
     @Override
@@ -73,7 +71,6 @@ public class UserDaoHibernateImpl implements UserDao {
         Transaction transaction = null;
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-
             session.delete(session.get(User.class, id));
             transaction.commit();
         } catch (Exception e) {

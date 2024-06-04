@@ -8,14 +8,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
-
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
     @Override
     public void createUsersTable() {
-
         userDao.createUsersTable();
         System.out.println("Table has been created");
     }
@@ -28,7 +26,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(String name, String lastName, byte age) {
-
         userDao.saveUser(name, lastName, age);
         System.out.println("User " + name + " added in database");
 
@@ -36,14 +33,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void removeUserById(long id) {
-
         userDao.removeUserById(id);
 
     }
 
     @Override
     public List<User> getAllUsers() {
-
         List<User> users = userDao.getAllUsers();
         for (User user : users) {
             System.out.println(user);
@@ -53,7 +48,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void cleanUsersTable() {
-
         userDao.cleanUsersTable();
         System.out.println("Table has been cleaned");
     }
